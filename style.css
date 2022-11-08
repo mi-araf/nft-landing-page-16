@@ -1,0 +1,199 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;800&display=swap');
+
+/* custom properties */
+:root {
+    --light-clr: hsl(0, 0%, 100%);
+    --dark-clr: hsl(223, 12%, 11%);
+    --accent-clr: hsl(52, 100%, 97%);
+    --pink-clr: hsl(340, 96%, 62%);
+    --yellow-clr: hsl(50, 100%, 72%);
+    --nav-height: 1.8rem;
+    --number-of-columns: 4;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 800;
+}
+
+@media screen and (min-width: 48em) {
+    :root{
+        --number-of-columns: 8;
+    }
+}
+@media screen and (min-width: 64em) {
+    :root{
+        --number-of-columns: 12;
+    }
+}
+
+/* reset */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: var(--dark-clr);
+}
+
+@media screen and (min-width: 48em) {
+    :root{
+        font-size: 1.6rem;
+    }
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}
+
+img, picture {
+    display: block;
+    max-width: 100%;
+}
+
+input, button {
+    font: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+i {
+    font-size: 2.4rem;
+    line-height: 2.4rem;
+}
+
+section {
+    overflow: hidden;
+}
+
+/* button */
+.button {
+    display: inline-block;
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.8rem;
+    transition: background-color 0.25s;
+}
+
+.button-dark {
+    background-color: var(--dark-clr);
+    color: var(--accent-clr);
+}
+.button-dark:hover {
+    background-color: hsl(223, 12%, 32%);
+}
+
+/* header */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--nav-height);
+}
+
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .25s, visibility .25s;
+}
+
+.nav-overlay.active {
+    opacity: 1;     /* active with JS */
+    visibility: visible;
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 27rem;
+    background-color: var(--accent-clr);
+    padding: 5.4rem 1.8rem;
+    /* transform: translateX(28rem); */
+    transition: transform .25s;
+}
+
+.nav-menu.active {
+    transform: translateX(0);
+}
+
+.nav-search {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 1.5rem;
+    border: 0.15rem solid var(--dark-clr);
+    border-radius: 0.8rem;
+    margin-bottom: 1rem;
+}
+.nav-search:focus-within {
+    border-color: var(--pink-clr);
+}
+.nav-search-icon {
+    display: inline-flex;
+}
+.nav-search-input {
+    width: 100%;
+}
+.nav-search-input::placeholder {
+    font-size: 1.4rem;
+    color: inherit;
+    transition: opacity 0.25s;
+}
+.nav-search-input:focus::placeholder {
+    opacity: 0;
+}
+
+.nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.nav-list-link {
+    display: inline-block;
+    padding: 0.5rem;
+    transition: color 0.25s;
+}
+.nav-list-link:hover {
+    color: var(--pink-clr);
+}
+
+.nav-button {
+    display: block;
+    padding: 1.2rem 3rem;
+    margin-top: 1.5rem;
+}
+
+.nav-close  {
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
+}
