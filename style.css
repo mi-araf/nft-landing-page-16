@@ -42,12 +42,15 @@ html {
 body {
     font-family: 'Be Vietnam Pro', sans-serif;
     font-size: 1.4rem;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--dark-clr);
+}
+body.scroll-false {
+    overflow-y: hidden;
 }
 
 @media screen and (min-width: 48em) {
-    :root{
+    body {
         font-size: 1.6rem;
     }
 }
@@ -99,6 +102,32 @@ section {
     background-color: hsl(223, 12%, 32%);
 }
 
+.button-normal {
+    font-size: 1.8rem;
+    padding: 1.5rem 3.8rem;
+}
+
+.button-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 117rem;
+    margin-inline: auto;
+    padding-inline: 1.8rem;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(var(--number-of-columns), 1fr);
+}
+
+.row > * {
+    grid-column: span var(--number-of-columns);
+}
+
 /* header */
 .header {
     position: absolute;
@@ -137,7 +166,7 @@ section {
     width: 27rem;
     background-color: var(--accent-clr);
     padding: 5.4rem 1.8rem;
-    /* transform: translateX(28rem); */
+    transform: translateX(30rem);
     transition: transform .25s;
 }
 
@@ -155,7 +184,7 @@ section {
     margin-bottom: 1rem;
 }
 .nav-search:focus-within {
-    border-color: var(--pink-clr);
+    border-color: var(--light-clr)
 }
 .nav-search-icon {
     display: inline-flex;
@@ -183,7 +212,7 @@ section {
     transition: color 0.25s;
 }
 .nav-list-link:hover {
-    color: var(--pink-clr);
+    color: var(--accent-clr);
 }
 
 .nav-button {
@@ -196,4 +225,163 @@ section {
     position: absolute;
     top: 1.8rem;
     right: 1.8rem;
+}
+
+@media screen and (min-width: 64em) {
+    .nav-logo {
+        margin-right: 7.9rem;
+    }
+
+    .nav-menu {
+        position: initial;
+        width: initial;
+        background-color: transparent;
+        padding: 0;
+        transform: none;
+        transition: none;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-search {
+        margin: 0 3.2rem 0 0;
+    }
+
+    .nav-list {
+        flex-direction: row;
+        gap: 2.4rem;
+    }
+
+    .nav-button {
+        margin-top: 0;
+        margin-left: 3.2rem;
+    }
+
+    .nav-open, .nav-close {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 75em){
+    .nav-list {
+        gap: 4.8rem;
+    }
+}
+
+/* showcase */
+.showcase {
+    padding-top: calc(var(--nav-height) * 2 + 3.4rem);
+    padding-bottom: 3.8rem;
+    /* background-image: linear-gradient(90deg, #75ff6e 50%, #fc7272 100%); */
+    background-color: #4158D0;
+    background-image: linear-gradient(225deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+}
+
+.showcase-container {
+    gap: 4rem 3rem;
+}
+
+.showcase-title {
+    font-size: clamp(3.6rem, 5vw, 7rem);
+    line-height: 4.6rem;
+    margin-bottom: 1.2rem;
+}
+
+.showcase-paragraph {
+    line-height: 2.4rem;
+    margin-bottom: 2.8rem;
+}
+
+.showcase-button {
+    margin-bottom: 3.8rem;
+}
+
+.showcase-stats {
+    display: flex;
+    column-gap: 3.8rem;
+}
+
+.showcase-stats-stat {
+    display: block;
+}
+
+.showcase-stats-stat-count {
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    line-height: 3.6rem;
+}
+.showcase-stats-stat-category {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+    font-weight: var(--font-weight-normal);
+    line-height: 2.4rem;
+}
+
+@media screen and (min-width: 23.5em) {
+    .showcase-image-group img {
+        margin-inline: auto;
+    }
+}
+
+@media screen and (min-width: 37.5em) {
+    .showcase-text-group {
+        grid-column: span;
+    }
+}
+
+@media screen and (min-width: 48em) {
+    .showcase {
+        /* padding-top: 9rem; */
+        padding-bottom: 10.5rem;
+    }
+
+    .showcase-text-group {
+        grid-column: 2/span 6;
+        text-align: center;
+    }
+
+    .showcase-title {
+        line-height: 5.6rem;
+    }
+
+    .showcase-paragraph {
+        font-size: 2rem;
+        line-height: 3.2rem;
+    }
+
+    .showcase-stats {
+        justify-content: center;
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 64em) {
+    .showcase {
+        padding-top: 13rem;
+        padding-bottom: 10.5rem;
+    }
+    .showcase-text-group {
+        grid-column: span 6;
+        text-align: left;
+    }
+
+    .showcase-title {
+        margin-bottom: 2rem;
+        line-height: 7.6rem;
+    }
+
+    .showcase-paragraph {
+        margin-bottom: 4rem;
+        padding-right: 5rem;
+    }
+
+    .showcase-button {
+        margin-bottom: 7rem;
+    }
+
+    .showcase-stats {
+        justify-content: left;
+    }
+
+    .showcase-image-group {
+        grid-column: span 6;
+    }
 }
